@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+.noty-message{
+    width:100px;
+    height:100px;
+}
+.view-links{
+    right: 100px;
+    position: fixed;
+}
+#link-b{
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background-color: coral;
+}
+/* create */
+.link-head {
+    display: flex;
+}
+.link-head button{
+    padding: 0.4 1rem;
+}
+h1{
+    margin: 1rem 0;
+}
+.create-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+form{
+    width: 60vw;
+}
+label{
+    font-size:small;
+}
+form{
+   display: flex;
+   flex-direction: column; 
+   max-width: 80%;
+}
+input , textarea{
+    margin: 0.1rem 0 0.6rem 0;
+}
+input{
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: 2px solid rgb(201, 201, 201);
+    padding-left: 0.5rem;
+}
+textarea{
+    border-radius: 0.5rem;
+    border: 2px solid rgb(201, 201, 201);
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+}
+.link-title{
+    margin: 1rem 0;
+}
+.link-div{
+    border-radius: 1rem;
+    border: 1px solid rgb(233, 233, 233);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    margin: 1rem 0;
+}
+.link-div input{
+    border: none;
+    border-bottom: 2px solid rgb(231, 231, 231);
+    border-radius: 0.2rem;
+    margin: 0.2rem 1rem;
+    outline: none;
+}
+button{
+    height: 2.2rem;
+    background-color: rgb(56, 56, 199);
+    color: white;
+    border-radius: 0.4rem;
+    border: none;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+button:hover{
+    background-color: rgb(75, 75, 219);;
+}
+.link-up-cont{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.delete{
+    height: 2rem;
+}
+.linnn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.6rem 1.5rem;
+    margin-bottom: -0.5rem;
+
+}
+.linnn label{
+    color:rgb(162, 35, 73);
+}
+svg{
+    height: 2.1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+svg:hover{
+   background-color: aliceblue;
+   border-radius: 0.3rem;
+}
+
+@media screen and (max-width:800px) {
+   form{
+    width: 80vw;
+} 
+}
+
+.view-links{
+    background-color: rgb(255, 135, 155);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.6rem;
+    color: white;
+     top:85%;
+    box-shadow: 1px 1px 6px 1px rgb(141, 141, 141);
+}
+.view-links a {
+    text-decoration: none;
+    color: white;
+}
+.view-links:hover{
+    background-color: rgb(231, 108, 129);
+}
+svg{
+    opacity: 0;
+}

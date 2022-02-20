@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LinkShare</title>
+  <%- include('partials/favicon') %>
+  <meta name="description" content="Linktree Clone">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js" integrity="sha512-mgZL3SZ/vIooDg2mU2amX6NysMlthFl/jDbscSRgF/k3zmICLe6muAs7YbITZ+61FeUoo1plofYAocoR5Sa1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/9d4449454b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+  <div class="register-body">
+    <div class="register-left">
+      <h1 class="head">
+        LinkShare
+      </h1>
+      <span>OPTIMIZED · INTEGRATED · FUTURE READY</span>
+      <p>
+        A linktree generator. You can enter your's or your organisation's title and links and get your linktree.
+      </p>
+      <h3 class="blue-feature">
+        With classic UI
+      </h3>
+      <h3 class="black-feature">
+        Let the LinkShare build your linktree.
+      </h3>
+    </div>
+    <div class="register-container">
+      <h2 class="register-head">Register</h2>
+      <h5 class="register-head-def">Register now to get your own limktree withount writing a single line of code.
+      </h5>
+      <div class="msg-box">
+       <%= typeof errmsg != 'undefined' ? errmsg : '' %> 
+      </div>
+      <form action="/users/create" method="POST">
+        <!-- <div>
+          <label for="name">Name</label><br />
+          <input type="name" name="title" placeholder="Enter Name"
+            value="" required/>
+
+        </div> -->
+        <div>
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" placeholder="Enter Email id" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
+        </div>
+        <!-- <div>
+          <label for="password">Confirm Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Confirm Password" required>
+        </div> -->
+        <div class="btn-cont">
+          <button type="submit" class="btn btn-dark">Register</button>
+        </div>
+      </form>
+      <p class="login-link">Have An Account? <a href="/users/sign-in">Login</a></p>
+    </div>
+  </div>
+</body>
+
+
+<script>
+  <%if(flash.success && flash.success.length >0) {%>
+      new Noty({
+          theme: 'relax',
+          text: '<%= flash.success%>',
+          type: 'success',
+          layout: 'topRight',
+          timeout: 1500
+      }).show();
+      <%}%> 
+
+      <%if(flash.error && flash.error.length >0) {%>
+          new Noty({
+              theme: 'relax',
+              text: '<%= flash.error%>',
+              type: 'error',
+              layout: 'topRight',
+              timeout: 1500
+          }).show();
+          <%}%> 
+</script>
+</html>

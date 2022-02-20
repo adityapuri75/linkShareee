@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title><%= user.title %> | LinkShare</title>
+        <%- include('partials/favicon') %>
+        <meta name="description" content="Linktree Clone">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/9d4449454b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js" ></script>
+        <link rel="stylesheet" href="/css/view.css">
+    </head>
+    <body>
+        <nav>
+           <img src="<%=user.imgUrl%>">
+           <p><%= user.title %> </p>
+            <a href="https://lincfree.herokuapp.com/<%= user.title %>" target="_blank" rel="noopener noreferrer">
+                <button class="copy"  id="https://lincfree.herokuapp.com/<%= user.title %>" onclick="copytoclipboard()">Copy link</button>
+            </a>
+           
+        </nav>
+        <div class="links-body">
+    <div class="logo">
+        <img src="<%= user.imgUrl %>" alt="logo">
+        <p class="title"><%= user.title %> </p>
+        <h5><%= user.description %> </h5>
+    </div>
+
+    <button class="view-links"><a href="/users/view">Edit links</a></button>
+</div>
+<%for(link of user.links) {%>
+<div class="links">
+    <div class="link-body">
+        <a href="<%= link.url %>"  target="_blank" rel="noopener noreferrer">
+        <div class="link-cont">
+            <p><%= link.linkname %> </p>
+        </div>
+    </a>
+    </div>
+    <div>
+        <button class="view-links1"><a href="/users/destroylink/<%=link.id%>">Delete</a></button>
+    </div>
+    </div>
+    <%}%>
+<footer>
+    Made with ❤️ by <a href="https://github.com/adityapuri75" target="_blank" rel="noopener noreferrer">Aditya Puri</a>
+</footer>
+<script src="scripts/script.js"></script>
+<script>
+    <%if(flash.success && flash.success.length >0) {%>
+        new Noty({
+            theme: 'relax',
+            text: '<%= flash.success%>',
+            type: 'success',
+            layout: 'topRight',
+            timeout: 1500
+        }).show();
+        <%}%> 
+
+        <%if(flash.error && flash.error.length >0) {%>
+            new Noty({
+                theme: 'relax',
+                text: '<%= flash.error%>',
+                type: 'error',
+                layout: 'topRight',
+                timeout: 1500
+            }).show();
+            <%}%> 
+</script>
+    </body>
+</html>
+

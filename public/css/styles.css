@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* create */
+.create-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.noty-message{
+    width:100px;
+    height:100px;
+}
+form{
+   display: flex;
+   flex-direction: column; 
+   max-width: 80%;
+}
+form input{
+    
+}

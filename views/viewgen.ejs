@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title><%= title %> | Linktree</title>
+        <%- include('partials/favicon') %>
+        <meta name="description" content="Linktree Clone">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/9d4449454b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/view.css">
+    </head>
+    <body>
+        <nav>
+           <img src="<%= imgUrl %>">
+           <p><%= title %> </p> 
+           <button class="copy" id="http://localhost:5000/<%= title %>" onclick="copytoclipboard()">Copy link</button>
+        </nav>
+        
+<div class="links-body">
+    <div class="logo">
+        <img src="<%= imgUrl %>" alt="logo">
+        <p class="title"><%= title %> </p>
+        <h5><%= description %> </h5>
+    </div>
+    <%for(link of links){%>
+    <div class="links">
+        <div class="link-body">
+            <a href="<%= link.url %>"  target="_blank" rel="noopener noreferrer">
+            <div class="link-cont">
+                <p><%= link.linkname %> </p>
+            </div>
+        </a>
+        </div>    
+    </div>
+    <%}%>
+</div>
+
+<div class="foot-up">
+    Get your own
+    <a href="/" target="_blank" rel="noopener noreferrer">
+         Linktree 
+    </a>
+</div>
+<footer>
+    Made with ❤️ by <a href="https://github.com/adityapuri75" target="_blank" rel="noopener noreferrer">Aditya Puri</a>
+</footer>
+
+<script src="scripts/script.js"></script>
+    </body>
+</html>

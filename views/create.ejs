@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Create Links</title>
+        <meta name="description" content="A free linktree builder tool.">
+        <%- include('partials/favicon') %>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://kit.fontawesome.com/9d4449454b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/create.css">
+    </head>
+    <body>
+
+<div class="create-links">
+    <h1>Create/Update Linktree</h1>
+    <form action="/users/create-profile/<%= locals.user.id%>" method="post">
+    <label for="title">Enter image url</label>
+    <input type="text" name="imgUrl" id="title" placeholder="<%=user.imgUrl%>" required>
+    <label for="title">Enter title</label>
+    <input type="text" name="title" id="title" placeholder="<%=user.title%>" required>
+    <label for="title">Enter description</label>
+    <textarea name="description" id="description" cols="20" rows="3" placeholder="<%=user.description%>" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+
+</div>
+<div class="create-links">
+<div class="link-head">
+    <h3 class="link-title">Add Links</h3>
+</div>
+<form action="/users/createlink" method="POST">
+<div class="link-div">
+        <div class="linnn">
+            <label for="link1name">Link</label>
+            <br>
+        </div>
+        
+        <input type="text" name="linkname" placeholder="Title" required>
+        <input type="text" name="url"  placeholder="Url" required>
+        <input type="hidden" name="user"  value="<%=user.id%>">
+        <button type="submit" id="link-b">Add Link</button>
+    </div>
+</form>
+<button class="view-links" style="margin-top: 20px;"><a href="/view">View links</a></button>
+</div>
+
+
+    
+
+
+   <script>
+            <%if(flash.success && flash.success.length >0) {%>
+                new Noty({
+                    theme: 'relax',
+                    text: '<%= flash.success%>',
+                    type: 'success',
+                    layout: 'topRight',
+                    timeout: 1500
+                }).show();
+                <%}%> 
+
+                <%if(flash.error && flash.error.length >0) {%>
+                    new Noty({
+                        theme: 'relax',
+                        text: '<%= flash.error%>',
+                        type: 'error',
+                        layout: 'topRight',
+                        timeout: 1500
+                    }).show();
+                    <%}%> 
+        </script>
+
+
+</body>
+</html>
