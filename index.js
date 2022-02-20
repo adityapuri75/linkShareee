@@ -46,7 +46,7 @@ app.use(
         maxAge: (1000 * 60 * 100)
     },
     store: MongoStore.create({
-        mongoUrl: 'mongodb://0.0.0.0:27017/linkshare',
+        mongoUrl: process.env.MONGO_URL,
         autoRemove: 'disabled'
     },
     function(err){
